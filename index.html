@@ -225,21 +225,24 @@
       .landing {
         flex-direction: column;
         align-items: stretch;
-        gap: 32px;
+        gap: 0;
+        padding: 0; /* Padding wird von den inneren Elementen übernommen */
       }
 
       .landing-inner {
+        order: 1; /* Sorgt dafür, text & logo oben stehen */
         width: 100%;
-        max-width: 640px;
+        max-width: 100%;
         min-width: 0;
-        padding: 0 24px;
+        padding: 48px 24px 40px 24px;
       }
 
       .landing-media {
+        order: 2; /* Sorgt dafür, dass die Statistiken unten stehen */
         position: static;
         width: 100%;
         clip-path: none;
-        padding: 32px 24px;
+        padding: 48px 24px;
       }
 
       .landing-media::before {
@@ -247,13 +250,16 @@
       }
 
       .landing-stats {
-        flex-direction: row;
-        gap: 32px;
+        /* Auf dem Handy sehen die 3 Statistiken untereinander am besten aus */
+        flex-direction: column;
+        gap: 32px; 
       }
 
       .landing-copyright {
         position: static;
-        padding: 0 24px 20px;
+        order: 3; /* Copyright ganz nach unten */
+        padding: 24px;
+        text-align: center; /* Zentriert sieht es auf dem Handy aufgeräumter aus */
       }
     }
   </style>
